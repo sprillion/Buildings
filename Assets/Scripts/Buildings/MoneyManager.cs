@@ -8,6 +8,8 @@ public class MoneyManager : MonoBehaviour
     private BuildingManager _buildingManager;
     private UIManager _uiManager;
 
+    public const int StartMoney = 3;
+
     public int money;
     public float time;
 
@@ -82,7 +84,7 @@ public class MoneyManager : MonoBehaviour
     public void Refresh()
     {
         PlayerPrefs.DeleteKey("Money");
-        money = 3;
+        money = StartMoney;
         _uiManager.ShowMoney(money);
     }
     public int MoneyForLevelUp(int level)
