@@ -70,6 +70,7 @@ public class BuildingManager : MonoBehaviour
         if (!moneyManager.ChangeMoney(moneyManager.MoneyForLevelUp(CurrentOnBuilding(currentCellID).level))) return;
 
         CurrentOnBuilding(currentCellID).level++;
+        _uiManager.FillMoneyPerTime(moneyManager.MoneyPerTime());
         _uiManager.ChangeLevel(CurrentBuilding);
         _uiManager.ShowInfo(false);
         Save();
@@ -99,10 +100,15 @@ public class BuildingManager : MonoBehaviour
 
     public void Load()
     {
-        if (!PlayerPrefs.HasKey("Save")) return;
+        if (!PlayerPrefs.HasKey("Save"))
+        {
+            generationGround.Generation();
+            return;
+        }
         var json = PlayerPrefs.GetString("Save");
         var save = JsonUtility.FromJson<SaveJson>(json);
         _gameManager.SizeMap = save.sizeMap;
+        generationGround.Generation();
         foreach (var i in save.save)
         {
             currentCellID = i.idCell;

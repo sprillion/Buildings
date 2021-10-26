@@ -21,10 +21,6 @@ public class GameManager : MonoBehaviour
         shopManager.Initialize(buildingManager, uiManager);
         buildingManager.Initialize(this, uiManager, shopManager, miniMap);
         cameraManager.Initialize(this, uiManager);
-    }
-
-    private void Start()
-    {
         LoadAll();
     }
 

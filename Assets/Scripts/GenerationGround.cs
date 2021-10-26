@@ -18,11 +18,8 @@ public class GenerationGround : MonoBehaviour
         _buildingManager = buildingManager;
         _miniMap = miniMap;
     }
-    private void Start()
-    {
-        Generation();
-    }
-    private void Generation()
+
+    public void Generation()
     {
         var sizeMap = _gameManager.SizeMap;
         var startPos = sizeMap * _sizeCell / -2 + _sizeCell/2;

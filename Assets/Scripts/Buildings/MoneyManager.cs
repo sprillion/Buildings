@@ -83,8 +83,9 @@ public class MoneyManager : MonoBehaviour
 
     public void Refresh()
     {
-        PlayerPrefs.DeleteKey("Money");
         money = StartMoney;
+        Save();
+        _uiManager.FillMoneyPerTime(MoneyPerTime());
         _uiManager.ShowMoney(money);
     }
     public int MoneyForLevelUp(int level)

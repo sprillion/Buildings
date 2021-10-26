@@ -23,7 +23,6 @@ public class Cell : MonoBehaviour
 
     public void GoToInfo()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
-            _miniMap.InfoFromMiniMap(id);
+        _miniMap.InfoFromMiniMap(id);
     }
 }
